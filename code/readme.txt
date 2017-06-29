@@ -50,7 +50,7 @@ Perform the following steps to run the experiments:
 
 - ToDo
 
-- Note, running the clustering step for a single category of the 'AnimalFace' dataset (i.e. config 'cluster_5_toy') will take about X CPU-hours. That is, the task requires about X hours on a CPU with 8 threads / cores.
+- Note, running the clustering step for a single category of the 'AnimalFace' dataset (i.e. config 'cluster_5_toy') will take about X CPU-hours (Intel Xeon E5-2676 v3). That is, the task requires about X hours on a CPU with 8 threads / cores.
 
 
 (3) main_2_classification.m
