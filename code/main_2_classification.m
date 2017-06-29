@@ -192,8 +192,8 @@ if run_svm
     save(['output/' para.name '/svm_accuracy.mat'], 'acc');
     save(['output/' para.name '/svm_model.mat'], 'model');
 
-    addpath('./piotrs-toolbox/classify');
-    addpath('./piotrs-toolbox/matlab');
+    addpath('./piotrs-toolbox-3.50/classify');
+    addpath('./piotrs-toolbox-3.50/matlab');
     T = zeros(max(testLabels),length(testLabels));
     Y = T;
     for iSample = 1:length(testLabels)

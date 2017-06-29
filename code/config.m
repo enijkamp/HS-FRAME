@@ -1,10 +1,10 @@
 function para = config()
 
 para.name = 'cluster_5_toy'; % Choose configuration name 'cluster_5_toy', 'cluster_5_full', 'cluster_5_base', 'cluster_11_full', 'cluster_11_base'
-para.noWorkers = 8;  % Set number of workers, which depends on how many cores in your cpu  
+para.noWorkers = 32;  % Set number of workers, which depends on how many cores in your cpu  
 
 
-para.dataPath = 'data/AnimalFace';
+para.dataPath = 'data/AnimalFace/';
 para.categoryNames = {'BearHead','CatHead','ChickenHead','CowHead', ...
                   'DeerHead','DogHead','DuckHead','EagleHead','ElephantHead', ...
                   'HumanHead','LionHead','MonkeyHead',...
