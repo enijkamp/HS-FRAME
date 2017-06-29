@@ -60,7 +60,7 @@ for task_id = task_ids
         part_sx = para.part_sx;
         part_sy = para.part_sy;
         
-        gradient_threshold_scale = 0.8; %  we use addaptive threshold in the multiple selection.  The threshold is equal to (gradient_threshold_scale * maximum gradient).
+        gradient_threshold_scale = 0.8; %  we use adaptive threshold in the multiple selection. The threshold is equal to (gradient_threshold_scale * maximum gradient).
         numPart = nPartCol*nPartRow; % number of deformable parts
         
         argmaxMethod = 1;  % 1: local max in squared region, 0: cross-shaped rgion for parts
@@ -72,7 +72,7 @@ for task_id = task_ids
         %%%%% parameters for large template
         sx = nPartRow*part_sx;   % template size x
         sy = nPartCol*part_sy;   % template size y
-        rotateShiftLimit = para.rotateShiftLimit;   % template rotation  from -rotateShiftLimit to rotateShiftLimit, eg. (1)-2:2 if rotateShiftLimit=2 (2)0 is without rotation
+        rotateShiftLimit = para.rotateShiftLimit;   % template rotation from -rotateShiftLimit to rotateShiftLimit, eg. (1)-2:2 if rotateShiftLimit=2 (2)0 is without rotation
         rotationRange = -rotateShiftLimit:rotateShiftLimit;
         numRotate = length(rotationRange);
         RatioDisplacementSUM3 = para.ratioDisplacementSUM3;   % default=0. Compute all values in SUM3 map
@@ -294,7 +294,6 @@ for task_id = task_ids
         
         %%%%%%% initialization of alignment
         clusters=struct('imageIndex',cell(numCluster,1),'cropImage', cell(numCluster,1),'rHat',[],'template',[],'logZ',[], 'S2T', [], 'S3T', []);  % structure to store information of cluster
-               
 
         MAX3scoreAll = rand(numImage, numCluster);   % randomly assign members to different cluster
         
@@ -309,11 +308,11 @@ for task_id = task_ids
                 clusters(c).rHat{iFilter}=zeros(sx, sy,'single');
             end
             
-            t=0; % index of image in the cluster, as well as the number of images in cluster
+            t = 0; % index of image in the cluster, as well as the number of images in cluster
             for iImg = 1:numImage
                 tic
-                [~, ind]=max(MAX3scoreAll(iImg, :));
-                if ind~=c
+                [~, ind] = max(MAX3scoreAll(iImg, :));
+                if ind ~= c
                     continue;  % skip image that does not belong to cluster c
                 end
                 %clusteredImageIdx{c}=[clusteredImageIdx{c},iImg]; % collect the id for each cluster
@@ -329,7 +328,7 @@ for task_id = task_ids
                 Fx_init = floor(allSizex(originalResolution)/2);  % center x
                 Fy_init = floor(allSizey(originalResolution)/2);   % center y
                 
-                cropedImage=single(zeros(sx, sy));
+                cropedImage = single(zeros(sx, sy));
                 Ccopy(cropedImage, single(imageLoaded.ImageMultiResolution{ind_init}), Fx_init, Fy_init, floor(sx/2), floor(sy/2), sx, sy, allSizex(ind_init), allSizey(ind_init), -rot_init*pi/nOrient);
                 
                 % optinal: output cropped images for iteration 0
@@ -415,8 +414,7 @@ for task_id = task_ids
             spmd
                 temp_result=codistributed(temp_result, codistributor1d(1,numAssignmentList));
                 
-                % for c= 1:numCluster
-                for c= startIndex(labindex):endIndex(labindex)
+                for c = startIndex(labindex):endIndex(labindex)
                     if ~isempty(clusters(c).imageIndex)
                         clusterSavingFolder=fullfile(savingFolder,['cluster' num2str(c) '/']);
                         if ~exist(clusterSavingFolder, 'dir')
@@ -459,7 +457,7 @@ for task_id = task_ids
             if isempty(gcp('nocreate')),delete(gcp('nocreate'));end
             
             % collect results and split template into several moving parts.
-            for c=1:numCluster
+            for c = 1:numCluster
                 if ~isempty(clusters(c).imageIndex)
                     clusters(c).template=temp_result{c,1};
                     clusters(c).currSample=temp_result{c,2};
@@ -557,7 +555,7 @@ for task_id = task_ids
                 end
                 
                 
-                t=0; % index of image in the cluster, as well as the number of images in cluster
+                t = 0; % index of image in the cluster, as well as the number of images in cluster
                 for iImg = 1:numImage
                     tic
                     [~, ind]=max(copy_MAX3scoreAll(iImg, :));
