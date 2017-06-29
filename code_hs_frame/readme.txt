@@ -44,18 +44,18 @@ Perform the following steps to run the experiments:
 
 - Set the number of cpu-cores 'para.noWorkers' to the number of CPU-threads, e.g. 'para.noWorkers = 8'.
 
-- ToDo
+- Change e.g. number of clusters or perturbation parameters, if you wish.
 
 (2) main_1_clustering.m 
 
-- ToDo
+- Run this file.
 
 - Note, running the clustering step for a single category of the 'AnimalFace' dataset (i.e. config 'cluster_5_toy') will take about 72 CPU-hours (Intel Xeon E5-2676 v3). That is, the clustering task for a category requires about 9 hours on a CPU with 8 threads / cores.
 
 
 (3) main_2_classification.m
 
-- ToDo
+- Run this file.
 
 - Note, the seed for the pseudo-random number sequences used in the multi-core variant of liblinear is not fixed. Therefore, multiple executions of the code will result in results with slight variations.
 
