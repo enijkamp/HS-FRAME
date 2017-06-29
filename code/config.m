@@ -167,10 +167,6 @@ if strcmp(para.name, 'cluster_11_base')
     
     para.task_ids = 1:20;
 
-    para.working_add='working_matSaving';
-    para.output_add='outputCoodBook';
-    para.output_sparseFrame='outputSparseFrame';
-
     para.method = 'two_stage';  % 'two_stage' : matching pursuit learning,  'one_stage': generative boosting learning
 
     para.nPartCol = 2;
