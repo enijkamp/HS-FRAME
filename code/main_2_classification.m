@@ -22,7 +22,7 @@ rng(seed);
 
 imgPath = para.dataPath;
 codebook_path = ['output/' para.name '/model/codebook.mat'];
-categoryNames = para.categoryNames;
+categoryNames = para.categoryNames{para.task_ids};
 img_size = 90;
 numClass = length(categoryNames);
 numIteration = 10;
