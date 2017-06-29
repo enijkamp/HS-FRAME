@@ -1,0 +1,1 @@
+function g = G(x, s)d = 1.96; p = .95; x = x/s; if (abs(x)<d)    g = (exp(-x*x/2) - exp(-d*d/2))/sqrt(2*pi)/s;    g = g/(p-d*2/sqrt(2*pi)*exp(-d*d/2));    else g = 0; end   
