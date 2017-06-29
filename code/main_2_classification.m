@@ -22,7 +22,7 @@ rng(seed);
 
 imgPath = para.dataPath;
 codebook_path = ['output/' para.name '/model/codebook.mat'];
-categoryNames = para.categoryNames{para.task_ids};
+categoryNames = para.categoryNames;
 img_size = 90;
 numClass = length(categoryNames);
 numIteration = 10;
@@ -34,7 +34,7 @@ trainImgs = cell(0);
 testImgs = cell(0);
 trainLabels = [];
 testLabels = [];
-for iClass = 1:numClass  
+for iClass = para.task_ids
 	imgList = dir(fullfile(imgPath, categoryNames{iClass},'*.jpg'));
 	disp( ['category ',  num2str(iClass), ': ' categoryNames{iClass}, ' has ' num2str(length(imgList)) ' images']);
 	for iImg= 1:length(imgList)
@@ -57,7 +57,7 @@ codeBook = [];
 if read_codebook && exist(codebook_path,'file')
     load(codebook_path);
 else
-    for iClass = 1:numClass
+    for iClass = para.task_ids
         min_max3 = 1e8;
         select_seed = 0;
         for seed = 1:5
