@@ -5,9 +5,9 @@ close all;
 % code
 addpath('./hs-frame');
 
-% serialization
-read_feature_from_data = false;
-read_codebook = false;
+% load
+read_codebook = true;   
+read_feature_from_data = true;
 run_svm_params = false;
 run_svm = true;
 
@@ -54,10 +54,9 @@ for iClass = 1:numClass
 end
 
 codeBook = [];
-if read_codebook
+if read_codebook && exist(codebook_path,'file')
     load(codebook_path);
 else
-
     for iClass = 1:numClass
         min_max3 = 1e8;
         select_seed = 0;
