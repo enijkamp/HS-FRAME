@@ -34,6 +34,7 @@ The code is configured to re-run the experiments published in [1]:
 ./main_2_classification.m  -  Runs classification step. 
 ./data/                    -  Contains 'AnimalFace' dataset.
 ./hs-frame/                -  Contains Code to train HS-FRAME model.
+./output/                  -  Contains the results.
 
 Perform the following steps to run the experiments:
 
