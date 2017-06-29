@@ -78,6 +78,7 @@ else
         codeBook = [codeBook ; clusters];
 
     end
+    if ~exist(['output/' para.name '/model'],'dir'),mkdir(['output/' para.name '/model']),end
     save(codebook_path,'codeBook');
 end
 
