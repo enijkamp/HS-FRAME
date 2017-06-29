@@ -17,10 +17,6 @@ para.categoryNames = {'BearHead','CatHead','ChickenHead','CowHead', ...
 if strcmp(para.name, 'cluster_5_toy')
     
     para.task_ids = [2];
-    
-    para.working_add='working_matSaving';
-    para.output_add='outputCoodBook';
-    para.output_sparseFrame='outputSparseFrame';
 
     para.method = 'two_stage';  % 'two_stage' : matching pursuit learning,  'one_stage': generative boosting learning
 
@@ -59,10 +55,6 @@ if strcmp(para.name, 'cluster_5_full')
     
     para.task_ids = 1:20;
 
-    para.working_add='working_matSaving';
-    para.output_add='outputCoodBook';
-    para.output_sparseFrame='outputSparseFrame';
-
     para.method = 'two_stage';  % 'two_stage' : matching pursuit learning,  'one_stage': generative boosting learning
 
     para.nPartCol = 2;
@@ -100,10 +92,6 @@ end
 if strcmp(para.name, 'cluster_5_base')
     
     para.task_ids = 1:20;
-    
-    para.working_add='working_matSaving';
-    para.output_add='outputCoodBook';
-    para.output_sparseFrame='outputSparseFrame';
 
     para.method = 'two_stage';  % 'two_stage' : matching pursuit learning,  'one_stage': generative boosting learning
 
@@ -141,10 +129,6 @@ end
 if strcmp(para.name, 'cluster_11_full')
     
     para.task_ids = 1:20;
-
-    para.working_add='working_matSaving';
-    para.output_add='outputCoodBook';
-    para.output_sparseFrame='outputSparseFrame';
 
     para.method = 'two_stage';  % 'two_stage' : matching pursuit learning,  'one_stage': generative boosting learning
 
