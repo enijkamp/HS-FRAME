@@ -24,11 +24,11 @@ imgPath = para.dataPath;
 codebook_path = ['output/' para.name '/model/codebook.mat'];
 categoryNames = para.categoryNames;
 img_size = 90;
-numClass = length(categoryNames);
+numClass = length(para.task_ids);
 numIteration = 10;
 spm_numLayers = 4;
 spm_threshold = 0;
-para.numCategory = length(categoryNames);
+para.numCategory = length(para.task_ids);
 
 trainImgs = cell(0);
 testImgs = cell(0);

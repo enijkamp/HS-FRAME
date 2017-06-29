@@ -135,24 +135,17 @@ function [SPM_SUM2, SPM_SUM3] = BatchExtractFeatures(imgCell,codebook, para, idx
     Corr = CorrFilterFrame(filters); %calculate correlation among filters
 
     
-    %%%%
     %%
     i=0;
     for iClass = 1:para.numCategory
-      
-    for c=1:para.numCluster
-        
-        i=i+1;
-        cluster_single=codebook(i,:);  
-        
-%         clusters(c).template=temp_result{c,1};
-%         clusters(c).currSample=temp_result{c,2};
-%         clusters(c).logZ=temp_result{c,3};
-        
-       
-        [cluster_single.S2T, cluster_single.S3T] = hierachicalTemplate(numPart, part_sx, part_sy, sx, sy, rotateShiftLimit, nOrient, numRotate, cluster_single.template, nScaleGabor, partRotationRange,PartLocX, PartLocY);
-        codebook(i,:) = cluster_single;
-    end
+        for c=1:para.numCluster
+
+            i=i+1;
+            cluster_single=codebook(i,:);  
+
+            [cluster_single.S2T, cluster_single.S3T] = hierachicalTemplate(numPart, part_sx, part_sy, sx, sy, rotateShiftLimit, nOrient, numRotate, cluster_single.template, nScaleGabor, partRotationRange,PartLocX, PartLocY);
+            codebook(i,:) = cluster_single;
+        end
     end
     %%
     
