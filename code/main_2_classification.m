@@ -6,8 +6,8 @@ close all;
 addpath('./hs-frame');
 
 % serialization
-read_feature_from_data = true;
-read_codebook = true;
+read_feature_from_data = false;
+read_codebook = false;
 run_svm_params = false;
 run_svm = true;
 
