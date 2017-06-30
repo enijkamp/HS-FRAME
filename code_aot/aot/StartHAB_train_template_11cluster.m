@@ -7,6 +7,9 @@ categoryNames = {'BearHead','CatHead','ChickenHead','CowHead',....
                 'MouseHead','PandaHead','PigeonHead','PigHead','RabbitHead','SheepHead'...
                 'TigerHead','WolfHead'};
 task_ids = [16:20];
+
+
+
 tic_toc = zeros(length(task_ids),1);
 
 %% Init
