@@ -25,7 +25,7 @@ Part III: How to run the code?
 The code is configured to re-run the experiments published in [1]:
 
 ./config.m                 -  Contains parameters for 'ours w/o parts' (baseline) and 'ours' (full), see [1].
-./main_1_template.m        -  Runs EM-algorithm to learn codebook. 
+./main_1_codebook.m        -  Runs EM-algorithm to learn codebook. 
 ./main_2_features.m        -  Runs feature extraction step. 
 ./main_3_classication.m    -  Runs SVM classification step. 
 ./dataset                  -  Contains 'AnimalFace' dataset.
@@ -40,10 +40,9 @@ Perform the following steps to run the experiments:
 
 - Set the number of cpu-cores 'para.noWorkers' to the number of CPU-threads, e.g. 'para.noWorkers = 8'.
 
-(2) main_1_template.m 
+(2) main_1_codebook.m 
 
 - Run this file.
-
 
 (3) main_2_features.m
 

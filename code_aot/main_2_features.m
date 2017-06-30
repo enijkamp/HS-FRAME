@@ -74,7 +74,6 @@ spm_threshold = 0;
 
 %% Input Codebooks
 
-numIteration = 10;  % which model will be selected
 codebook = [];
 for iClass = 1: Codebook_category 
     template_file = sprintf('template/hab_task%d_iter%d.mat', iClass, numIteration);
@@ -107,7 +106,7 @@ for iType = 1:length(FeatureType)  % training folder or testing folder
     
     FeatureTypeName = FeatureType{iType};
     
-    for iClass=1:length(categoryNames)        %% category
+    for iClass = 1:length(categoryNames)        %% category
         
         SPM_SUM3 = [];
         
