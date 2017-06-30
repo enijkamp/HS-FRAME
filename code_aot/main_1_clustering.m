@@ -1,5 +1,5 @@
 % clear
-clear
+clear;
 close all;
 
 % code

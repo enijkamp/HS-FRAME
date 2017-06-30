@@ -1,15 +1,16 @@
 % clear
-clear
+clear;
 close all;
 
 % code
 addpath('./hs-frame');
 
-% load
+% options
 read_codebook = true;   
 read_feature_from_data = true;
 run_svm_params = false;
 run_svm = true;
+run_confusion = true;
 
 % config
 para = config();
@@ -191,6 +192,9 @@ if run_svm
     
     save(['output/' para.name '/svm_accuracy.mat'], 'acc');
     save(['output/' para.name '/svm_model.mat'], 'model');
+end
+
+if run_confusion
 
     addpath('./piotrs-toolbox-3.50/classify');
     addpath('./piotrs-toolbox-3.50/matlab');
