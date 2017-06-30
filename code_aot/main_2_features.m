@@ -105,10 +105,11 @@ FeatureType={'train', 'test'};
 
 for iType = 1:length(FeatureType)  % training folder or testing folder
     
-    SPM_SUM3 = [];
     FeatureTypeName = FeatureType{iType};
     
     for iClass=1:length(categoryNames)        %% category
+        
+        SPM_SUM3 = [];
         
         switch FeatureTypeName
             case 'train'
