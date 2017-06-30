@@ -14,12 +14,7 @@ The code is may be to reproduce the results shown in [1].
 Part II: Dependencies
 ---------------------
 
-The code requires the following Matlab toolboxes to be installed:
-
-- Parallel Computing Toolbox
-- Neural Network Toolbox
-
-In addition, the Matlab mex compiler must be configured for the compilation of C.
+The code requires the Matlab mex compiler to be configured for the compilation of C.
 
 The package includes the external libraries liblinear 2.11-1 (multi-core variant) and piotrs toolbox 3.50.
 
@@ -30,32 +25,31 @@ Part III: How to run the code?
 The code is configured to re-run the experiments published in [1]:
 
 ./config.m                 -  Contains parameters for 'ours w/o parts' (baseline) and 'ours' (full), see [1].
-./main_1_clustering.m      -  Runs clustering step. 
-./main_2_classification.m  -  Runs classification step. 
-./data/                    -  Contains 'AnimalFace' dataset.
-./hs-frame/                -  Contains Code to train HS-FRAME model.
+./main_1_template.m        -  Runs EM-algorithm to learn codebook. 
+./main_2_features.m        -  Runs feature extraction step. 
+./main_3_classication.m    -  Runs SVM classification step. 
+./dataset                  -  Contains 'AnimalFace' dataset.
+./aot/                     -  Contains code for AoT model.
 ./output/                  -  Contains the results.
 
 Perform the following steps to run the experiments:
 
 (1) config.m
 
-- Set the configuration 'para.name' to 'cluster_5_toy', 'cluster_5_full', 'cluster_5_base' or 'cluster_11_full', e.g. para.name='cluster_5_full'.
+- Set the configuration 'para.name' to 'cluster_5_toy', 'cluster_5', or 'cluster_11', e.g. para.name='cluster_5'.
 
 - Set the number of cpu-cores 'para.noWorkers' to the number of CPU-threads, e.g. 'para.noWorkers = 8'.
 
-- Change e.g. number of clusters or perturbation parameters, if you wish.
-
-(2) main_1_clustering.m 
+(2) main_1_template.m 
 
 - Run this file.
 
-- Note, running the clustering step for a single category of the 'AnimalFace' dataset (i.e. config 'cluster_5_toy') will take about 72 CPU-hours (Intel Xeon E5-2676 v3). That is, the clustering task for a category requires about 9 hours on a CPU with 8 threads / cores.
 
-
-(3) main_2_classification.m
+(3) main_2_features.m
 
 - Run this file.
 
-- Note, the seed for the pseudo-random number sequences used in the multi-core variant of liblinear is not fixed. Therefore, multiple executions of the code will result in results with slight variations.
+(4) main_3_classification.m
+
+- Run this file.
 
