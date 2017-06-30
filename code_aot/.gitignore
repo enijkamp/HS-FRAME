@@ -4,3 +4,4 @@ output
 *.mexa64
 *.mexw64
 *.mexw64.manifest
+*.asv
