@@ -7,6 +7,7 @@ addpath('./aot');
 addpath('./liblinear-multicore-2.11-1/matlab');
 
 % options
+read_feature_from_data = true;
 run_svm_params = false;
 run_svm = true;
 run_confusion = true;
@@ -17,10 +18,48 @@ para = config();
 % fix seed
 rng(1);
 
-% load features
-if run_svm_params || run_svm
-    
+% load
+imgPath = para.dataPath;
+categoryNames = para.categoryNames;
+numClass = length(para.task_ids);
+
+if read_feature_from_data && exist(['./output/' para.name '/HAB_All_Features.mat'],'file')
     load(['output/' para.name '/HAB_All_Features.mat'], 'trainFeatures', 'testFeatures', 'trainLabels', 'testLabels');
+else
+    trainLabels = [];
+    testLabels = [];
+    for iClass = para.task_ids
+        imgList = [dir(fullfile(imgPath, categoryNames{iClass},'*.jpg')); dir(fullfile(imgPath, categoryNames{iClass},'*.JPG'))];
+        disp( ['category ',  num2str(iClass), ': ' categoryNames{iClass}, ' has ' num2str(length(imgList)) ' images']);
+        for iImg= 1:length(imgList)
+            trainLabels = [trainLabels; iClass];
+        end
+        imgList = [dir(fullfile(imgPath, [categoryNames{iClass} '_test'],'*.jpg')); dir(fullfile(imgPath, [categoryNames{iClass} '_test'],'*.JPG'))];
+        disp( ['category ',  num2str(iClass), ': ' categoryNames{iClass}, '_test has ' num2str(length(imgList)) ' images']);
+        for iImg = 1:length(imgList)
+            testLabels = [testLabels; iClass];
+        end
+    end
+
+    big_train = [];
+    big_test = [];
+
+    for iClass = para.task_ids
+        load(['./output/' para.name '/trainFeatures_' categoryNames{iClass} '.mat']);
+        load(['./output/' para.name '/testFeatures_' categoryNames{iClass} '.mat']);
+        big_train = [big_train ; trainFeatures];
+        big_test = [big_test ; testFeatures];
+    end
+    trainFeatures = big_train;
+    testFeatures = big_test;
+
+    if length(trainLabels)~=size(trainFeatures, 1), error('train data error, please check!'), end
+    if length(testLabels)~=size(testFeatures, 1), error('test data error, please check!'), end
+
+    save(['./output/' para.name '/HAB_All_Features.mat'], '-v7.3', 'trainFeatures', 'testFeatures', 'trainLabels', 'testLabels');
+end
+
+if run_svm_params || run_svm  
     addpath('./liblinear-multicore-2.11-1/matlab');
 end
 

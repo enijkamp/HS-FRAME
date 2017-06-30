@@ -21,6 +21,7 @@ useSUM3 = para.useSUM3;
 seed = 1;
 rng(seed);
 
+% load
 imgPath = para.dataPath;
 codebook_path = ['output/' para.name '/model/codebook.mat'];
 categoryNames = para.categoryNames;
