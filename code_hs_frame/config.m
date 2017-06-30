@@ -1,6 +1,6 @@
 function para = config()
 
-para.name = 'cluster_5_full'; % Choose configuration name 'cluster_5_toy', 'cluster_5_full', 'cluster_5_base', 'cluster_11_full', 'cluster_11_base'
+para.name = 'cluster_5_toy’; % Choose configuration name 'cluster_5_toy', 'cluster_5_full', 'cluster_5_base', 'cluster_11_full', 'cluster_11_base'
 para.noWorkers = 8;  % Set number of workers, which depends on how many cores in your cpu  
 
 
@@ -16,7 +16,7 @@ para.categoryNames = {'BearHead','CatHead','ChickenHead','CowHead', ...
 
 if strcmp(para.name, 'cluster_5_toy')
     
-    para.task_ids = [2];
+    para.task_ids = 1:2;
 
     para.method = 'two_stage';  % 'two_stage' : matching pursuit learning,  'one_stage': generative boosting learning
 
