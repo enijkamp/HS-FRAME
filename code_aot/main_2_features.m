@@ -33,7 +33,6 @@ startx = 1; endx = startx + sizeTemplatex - 1; % % bounding box of the first obj
 starty = 1; endy = starty + sizeTemplatey - 1;
 
 % to be frequently adjusted:
-
 partRotationRange = 2*(-2:2); % absolute part rotation (rotation of partial templates)
 numPartRotate = length(partRotationRange);
 maxPartRelativeRotation = 2;
@@ -70,7 +69,6 @@ for x = PartLocX0
         iPart = iPart + 1;
     end
 end
-
 
 spm_numLayers = 3;
 spm_threshold = 0;
