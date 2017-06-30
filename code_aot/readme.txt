@@ -24,7 +24,7 @@ Part III: How to run the code?
 
 The code is configured to re-run the experiments published in [1]:
 
-./config.m                 -  Contains parameters for 'ours w/o parts' (baseline) and 'ours' (full), see [1].
+./config.m                 -  Contains parameters for 'AOT', see [1].
 ./main_1_codebook.m        -  Runs EM-algorithm to learn codebook. 
 ./main_2_features.m        -  Runs feature extraction step. 
 ./main_3_classication.m    -  Runs SVM classification step. 
