@@ -14,6 +14,7 @@ run_confusion = true;
 
 % config
 para = config();
+noWorkers = para.noWorkers;
 
 % fix seed
 rng(1);

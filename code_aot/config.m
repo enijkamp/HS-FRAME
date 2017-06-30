@@ -1,6 +1,6 @@
 function para = config()
 
-para.name = 'cluster_5_toy'; % Choose configuration name 'cluster_5_toy', 'cluster_5', 'cluster_11'
+para.name = 'cluster_5'; % Choose configuration name 'cluster_5_toy', 'cluster_5', 'cluster_11'
 para.noWorkers = 8;  % Set number of workers, which depends on how many cores in your cpu  
 
 
