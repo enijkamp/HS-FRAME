@@ -1,6 +1,6 @@
 function para = config()
 
-para.name = 'cluster_5_toy'; % Choose configuration name 'cluster_5_toy', 'cluster_5_full', 'cluster_5_base', 'cluster_11_full', 'cluster_11_base'
+para.name = 'cluster_5_toy'; % Choose configuration name 'cluster_5_toy', 'cluster_5', 'cluster_11'
 para.noWorkers = 8;  % Set number of workers, which depends on how many cores in your cpu  
 
 
@@ -42,7 +42,7 @@ end
 
 %% 5 clusters
 
-if strcmp(para.name, 'cluster_5_full')
+if strcmp(para.name, 'cluster_5')
     
     para.task_ids = 1:20;
     para.numCluster = 5;
@@ -70,7 +70,7 @@ end
 
 %% 11 cluster
 
-if strcmp(para.name, 'cluster_11_full')
+if strcmp(para.name, 'cluster_11')
     
     para.task_ids = 1:20;
     para.numCluster = 11;
