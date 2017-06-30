@@ -33,20 +33,24 @@ startx = 1; endx = startx + sizeTemplatex - 1; % % bounding box of the first obj
 starty = 1; endy = starty + sizeTemplatey - 1;
 
 % to be frequently adjusted:
-partRotationRange = 2*(-2:2); % absolute part rotation (rotation of partial templates)
-numPartRotate = length(partRotationRange);
-maxPartRelativeRotation = 2;
-resolutionShiftLimit = 1;
-minRotationDif = (sin(maxPartRelativeRotation*pi/numOrient)-sin(0))^2 + (cos(maxPartRelativeRotation*pi/numOrient)-cos(0))^2 + 1e-10;
-rotationRange = 2*(-1:1); % whole object rotation
-numRotate = length(rotationRange);
+numIteration = para.numIteration;
+partRotationRange = para.partRotationRange;
+maxPartRelativeRotation = para.maxPartRelativeRotation;
+resolutionShiftLimit = para.resolutionShiftLimit;
+rotationRange = para.rotationRange;
+
+numPartRotate = length(para.partRotationRange);
+numRotate = length(para.rotationRange);
+minRotationDif = (sin(para.maxPartRelativeRotation*pi/numOrient)-sin(0))^2 + (cos(para.maxPartRelativeRotation*pi/numOrient)-cos(0))^2 + 1e-10;
 
 % to be occationally adjusted
-numElement = 300; % number of Gabors in active basis
-locationPerturbFraction = .2; % part perturbation
-locationShiftLimit = 2; % shift in normal direction = locationShiftLimit*subsample pixels
-orientShiftLimit = 1; % shift in orientation
-subsampleS2 = 3; subsampleM2 = 1;
+numElement = para.numElement;
+locationPerturbFraction = para.locationPerturbFraction;
+locationShiftLimit = para.locationShiftLimit;
+orientShiftLimit = para.orientShiftLimit;
+subsampleS2 = para.subsampleS2;
+subsampleM2 = para.subsampleM2;
+
 partMarginX = floor(partSizeX*.75);
 partMarginY = floor(partSizeY*.75);
 
