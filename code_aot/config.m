@@ -19,6 +19,7 @@ if strcmp(para.name, 'cluster_5_toy')
     para.categoryNames = {'CatHead'};
     
     para.task_ids = 1;
+    para.numCluster = 5;
     para.numEMIteration = 10;
     para.numResolution = 3;   
     
@@ -29,6 +30,7 @@ end
 if strcmp(para.name, 'cluster_5_full')
     
     para.task_ids = 1:20;
+    para.numCluster = 5;
     para.numEMIteration = 10;
     para.numResolution = 3;   
     
@@ -39,6 +41,7 @@ end
 if strcmp(para.name, 'cluster_11_full')
     
     para.task_ids = 1:20;
+    para.numCluster = 11;
     para.numEMIteration = 10;
     para.numResolution = 3;  
 
