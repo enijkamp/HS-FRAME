@@ -8,11 +8,6 @@ addpath('aot');
 % config
 para = config();
 
-% mex
-prev = cd('aot');
-compileMex();
-cd(prev);
-
 %% Parameters
 imgPath = para.dataPath;
 Codebook_category = length(para.categoryNames);
@@ -108,7 +103,7 @@ FeatureType={'train', 'test'};
 
 %% Extracting Features
 
-for iType = 2 %1:length(FeatureType)  % training folder or testing folder
+for iType = 1:length(FeatureType)  % training folder or testing folder
     
     SPM_SUM3 = [];
     FeatureTypeName = FeatureType{iType};
@@ -122,8 +117,6 @@ for iType = 2 %1:length(FeatureType)  % training folder or testing folder
                 categoryName = [categoryNames{iClass} '_test'];
         end
         
-%         imageFolder = ['../AnimalFace/' categoryName]; % folder of training images
-%         imageName = dir([imageFolder '/*.jpg']);
         imgList = dir(fullfile(imgPath, categoryName,'*.jpg'));
         
         for img= 1:length(imgList)   
