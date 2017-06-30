@@ -119,7 +119,7 @@ for iType = 1:length(FeatureType)  % training folder or testing folder
         
         imgList = dir(fullfile(imgPath, categoryName,'*.jpg'));
         
-        for img= 1:length(imgList)   
+        for img = 1:length(imgList)   
             
             disp([' start processing image ' num2str(img) ' in class ' categoryName]); tic
             
