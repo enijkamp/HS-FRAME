@@ -32,8 +32,8 @@ The code is configured to re-run the experiments published in [1]:
 ./config.m                 -  Contains parameters for 'ours w/o parts' (baseline) and 'ours' (full), see [1].
 ./main_1_clustering.m      -  Runs clustering step. 
 ./main_2_classification.m  -  Runs classification step. 
-./data/                    -  Contains 'AnimalFace' dataset.
-./hs-frame/                -  Contains Code to train HS-FRAME model.
+./dataset                  -  Contains 'AnimalFace' dataset.
+./hs-frame/                -  Contains code for HS-FRAME model.
 ./output/                  -  Contains the results.
 
 Perform the following steps to run the experiments:
