@@ -14,7 +14,7 @@ compileMex();
 cd(prev);
 
 % run
-tic_toc = zeros(length(task_ids),1);
+tic_toc = zeros(length(para.task_ids),1);
 
 %% Init
 
@@ -22,7 +22,9 @@ tic_toc = zeros(length(task_ids),1);
 
 NumCluster = para.numCluster;
 
-if ~exist(['output/','dir')
+if (exist('output','dir'))
+    delete('output/*.*'); 
+else
     mkdir('output');
 end
 
@@ -87,14 +89,14 @@ end
 
 
 for task_id = para.task_ids
-    categoryName = categoryNames{task_id};
+    categoryName = para.categoryNames{task_id};
     big_ticID = tic;
 
     imageFolder = [para.dataPath categoryName]; % folder of training images  
     imageName = dir([imageFolder '/*.jpg']);
     numImage = size(imageName, 1); % number of training images 
 
-    save('aot/Config','Config');
+    save('working/Config');
 
     %% Load in training images and initialize SUM1 maps for learning
     I = cell(1, numImage);
@@ -485,14 +487,14 @@ for task_id = para.task_ids
                             Fx = floor(.5+Fx*double(new_size)/current_size);
                             Fy = floor(.5+Fy*double(new_size)/current_size);
                             
-                            if Fx >= 1 && Fx <= size(tmp,1) && Fy >= 1 && Fy <= size(tmp,2);
+                            if Fx >= 1 && Fx <= size(tmp,1) && Fy >= 1 && Fy <= size(tmp,2)
                                 translationInd = tmp(Fx,Fy) + 1;
                             else
                                 translationInd = floor(size(M2RowColShift,1)/2);
                             end
                             
                             tmp = largerMAX2TransformTrace{r,iPart,bestPartRes};
-                            if Fx >= 1 && Fx <= size(tmp,1) && Fy >= 1 && Fy <= size(tmp,2);
+                            if Fx >= 1 && Fx <= size(tmp,1) && Fy >= 1 && Fy <= size(tmp,2)
                                 transformInd = tmp(Fx,Fy) + 1;
                             else
                                 transformInd = floor(numPartRotate/2) + 1;
@@ -665,12 +667,11 @@ for task_id = para.task_ids
         
         %% Iteration part 2 (M step): re-learn the template
         
-        for c = 1: NumCluster
+        for c = 1:NumCluster
             
             disp(['multiple image learning for step ' num2str(it) ' on Cluster' num2str(c)]);
             tic
             
-
             tmpSelectedx = zeros(numElement,1);
             tmpSelectedy = zeros(numElement,1);
             tmpSelectedo = zeros(numElement,1);

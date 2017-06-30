@@ -1,5 +1,5 @@
 
-clear
+clear;
 close all;
 categoryNames = {'BearHead','CatHead','ChickenHead','CowHead',....
                'DeerHead','DogHead','DuckHead','EagleHead',....
