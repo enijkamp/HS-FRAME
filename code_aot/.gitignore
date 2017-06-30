@@ -1,4 +1,6 @@
 output
+working
+template
 *.exp
 *.lib
 *.mexa64
