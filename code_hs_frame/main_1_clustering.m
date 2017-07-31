@@ -42,7 +42,7 @@ for task_id = task_ids
         %%%%%
         
         %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-        %%% paraemters for two-stage learning algorithm
+        %%% parameters for two-stage learning algorithm
         %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
         sigsq = 10;
         numSketch = para.numWavelet; %400 sparsification
